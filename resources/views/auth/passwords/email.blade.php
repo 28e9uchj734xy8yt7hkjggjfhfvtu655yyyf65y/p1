@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.front')
 
 @section('content')
 <div class="container">
@@ -19,7 +19,7 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label text-lg-right">E-Mail Address</label>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-5">
                                 <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
@@ -31,10 +31,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-lg-6 offset-lg-4">
+                            <div class="col-lg-7 offset-lg-4">
                                 <button type="submit" class="btn btn-primary">
                                     Send Password Reset Link
                                 </button>
+                                <a class="btn btn-link" href="/login">
+                                    Sign In
+                                </a>
                             </div>
                         </div>
                     </form>

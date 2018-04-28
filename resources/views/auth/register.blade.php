@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.front')
 
 @section('content')
 <div class="container">
@@ -89,7 +89,10 @@
                             <div class="col-lg-6 offset-lg-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register
-                                </button>
+                                </button>      
+                                <a class="btn btn-link" href="/login">
+                                    Sign In
+                                </a>
                             </div>
                         </div>
                     </form>
