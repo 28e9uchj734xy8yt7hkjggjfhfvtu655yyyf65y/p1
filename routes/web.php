@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/portfolios', 'HomeController@portfolios')->name('portfolios');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

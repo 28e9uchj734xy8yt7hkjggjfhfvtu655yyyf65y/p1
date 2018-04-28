@@ -13,4 +13,11 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
+  'laravelnews/laravel-twbs4' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaravelNews\\Presets\\BootstrapFour\\BootstrapPresetServiceProvider',
+    ),
+  ),
 );
