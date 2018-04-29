@@ -302,7 +302,6 @@
 <script src="/adminstrap/assets/js/pikeadmin.js"></script>
 
 <!-- BEGIN Java Script for this page -->
-    <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
