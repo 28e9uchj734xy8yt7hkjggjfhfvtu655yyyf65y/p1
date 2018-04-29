@@ -19,7 +19,7 @@
                         <div class="form-group row">
                             <label class="col-lg-4 col-form-label text-lg-right">E-Mail Address</label>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-5">
                                 <input type="email" class="form-control<?php echo e($errors->has('email') ? ' is-invalid' : ''); ?>" name="email" value="<?php echo e(old('email')); ?>">
 
                                 <?php if($errors->has('email')): ?>
@@ -31,10 +31,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-lg-6 offset-lg-4">
+                            <div class="col-lg-7 offset-lg-4">
                                 <button type="submit" class="btn btn-primary">
                                     Send Password Reset Link
                                 </button>
+                                <a class="btn btn-link" href="/login">
+                                    Sign In
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -45,4 +48,4 @@
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.front', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

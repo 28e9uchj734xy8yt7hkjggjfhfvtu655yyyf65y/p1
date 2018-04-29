@@ -35,7 +35,7 @@
 
         <!-- LOGO -->
         <div class="headerbar-left">
-            <a href="index.html" class="logo"><img alt="Logo" src="/adminstrap/assets/images/logo.png" /> <span>Admin</span></a>
+            <a href="/admin" class="logo"><img alt="Logo" src="/adminstrap/assets/images/logo.png" /> <span>Admin</span></a>
         </div>
 
         <nav class="navbar-custom">
@@ -277,7 +277,7 @@
     
     <footer class="footer">
         <span class="text-right">
-        Copyright <a target="_blank" href="#">Your Website</a>
+        Copyright <a target="_blank" href="#">rubeyond.com</a>
         </span>
         <span class="float-right">
         Powered by <a target="_blank" href="https://www.pikeadmin.com"><b>Pike Admin</b></a>

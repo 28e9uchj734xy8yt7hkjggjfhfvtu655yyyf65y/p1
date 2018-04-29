@@ -88,7 +88,10 @@
                             <div class="col-lg-6 offset-lg-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register
-                                </button>
+                                </button>      
+                                <a class="btn btn-link" href="/login">
+                                    Sign In
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -99,4 +102,4 @@
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.front', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

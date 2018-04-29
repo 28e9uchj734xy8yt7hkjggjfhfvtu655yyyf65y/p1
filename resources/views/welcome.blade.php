@@ -3,7 +3,7 @@
 @section('content')
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Our Services</h1>
-      <p class="lead">Quickly develop your web apps without hassle on contract. <br />
+      <p class="lead">Quickly start to develop your web apps<br />
       Let's choose our services to meet your needs.</p>
     </div>
 
@@ -13,7 +13,7 @@
             <h4 class="my-0 font-weight-normal">Hourly</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ h</small></h1>
+            <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ h*</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Flexible hours</li>
               <li>Hourly Deployment*</li>
@@ -27,10 +27,9 @@
             <h4 class="my-0 font-weight-normal">Extended</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$<small class="text-muted">/ 30 days</small></h1>
+            <h1 class="card-title pricing-card-title">$<small class="text-muted">/ 20 days</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>10 users included</li>
-              <li>2 GB of storage</li>
               <li>Email support</li>
               <li>Help center access</li>
             </ul>
