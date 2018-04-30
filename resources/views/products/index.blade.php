@@ -43,7 +43,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <form class="demo-form" action="#">
+                  <form class="rubeyond-form" action="#">
                   <div class="modal-body">
                    <p>Nunc molestie felis vitae sem malesuada pulvinar. In condimentum, eros id pellentesque eleifend, sem nibh eleifend neque, ac ultrices nisl nisl vel felis. Phasellus et pellentesque enim, quis tincidunt dui. Suspendisse nisi libero, mollis efficitur commodo in, tempor ut odio. Donec consequat nunc lorem, sit amet pellentesque erat volutpat et.</p>
                       <div class="form-section">
@@ -112,12 +112,12 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
-                                  <form class="demo-form" action="#">
+                                  <form class="rubeyond-form" action="#">
                                   <div class="modal-body">
                                    <p>Nunc molestie felis vitae sem malesuada pulvinar. In condimentum, eros id pellentesque eleifend, sem nibh eleifend neque, ac ultrices nisl nisl vel felis. Phasellus et pellentesque enim, quis tincidunt dui. Suspendisse nisi libero, mollis efficitur commodo in, tempor ut odio. Donec consequat nunc lorem, sit amet pellentesque erat volutpat et.</p>
                                       <div class="form-section">
                                         <label for="name">Name:</label>
-                                        <input type="text" class="form-control" name="edit_name" id="name" required="" value={{$product->name}} data-parsley-group="block-0">
+                                        <input type="text" class="form-control" name="edit_name" id="name" required="" value="{{$product->name}}" ata-parsley-group="block-0">
 
                                         <label for="description">Description:</label>
                                         <textarea class="form-control" name="edit_description" id="description" required="" data-parsley-group="block-0">{{$product->description}} </textarea>
@@ -156,12 +156,12 @@
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
-                              <form class="demo-form" action="#">
+                              <form class="rubeyond-form" action="#">
                               <div class="modal-body">
                                <p>Are you sure to remove ?</p>
                                   <div class="form-section">
                                     <label for="name">Name:</label>
-                                    <input type="text" disabled="true" class="form-control" required="" value={{$product->name}} data-parsley-group="block-0">
+                                    <input type="text" disabled="true" class="form-control" required="" value="{{$product->name}}" data-parsley-group="block-0">
 
                                     <label for="description">Description:</label>
                                     <textarea disabled="true" class="form-control" required="" data-parsley-group="block-0">{{$product->description}} </textarea>
