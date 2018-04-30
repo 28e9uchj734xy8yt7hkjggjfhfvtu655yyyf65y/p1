@@ -16,13 +16,15 @@ Route::get('/', function () {
 });
 
 
-Route::get('/portfolio', 'HomeController@portfolios')->name('portfolios');
-Route::get('/product', 'HomeController@products')->name('products');
+Route::get('/portfolio', 'HomeController@portfolios')->name('our_portfolios');
+
+Route::get('/product', 'HomeController@products')->name('our_products');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+
 Route::resource('products','ProductsController');
 
