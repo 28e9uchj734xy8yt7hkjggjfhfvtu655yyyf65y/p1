@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Product;
 use Illuminate\Http\Request;
+use Response;
 
 class ProductsController extends AdminController
 {
@@ -13,7 +14,10 @@ class ProductsController extends AdminController
      */
     public function index()
     {
-        return view('products/index');
+
+        $products = Product::all();
+
+        return view('products/index', ['products' => $products]);
     }
 
     /**
@@ -34,7 +38,25 @@ class ProductsController extends AdminController
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product;
+        $product->name = $request->name;
+        $product->product_type = " ";//$request->product_type;
+        $product->product_url =  " ";//$request->product_url;
+        $product->api_url =  " ";//$request->api_url;
+        $product->icon_file =  " ";//$request->icon_file;
+        $product->total_users =  " ";//$request->total_users;
+        $product->status =  " ";//$request->status;
+        $product->description =  $request->description;
+        $result = [];
+        if($product->save())
+            {
+                $result['ok']= "Success";
+        }
+        else{
+
+                $result['error']= "Failed";
+        }
+        return Response::json($result);
     }
 
     /**
@@ -79,6 +101,16 @@ class ProductsController extends AdminController
      */
     public function destroy($id)
     {
-        //
+        $product= Product::find($id);
+        $result = [];
+        if($product->delete())
+            {
+                $result['ok']= "Success";
+        }
+        else{
+
+                $result['error']= "Failed";
+        }
+        return Response::json($result);
     }
 }

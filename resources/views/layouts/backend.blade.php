@@ -4,7 +4,8 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <title>Rubeyond</title>
         <meta name="description" content="Free Bootstrap 4 Admin Theme | Pike Admin">
         <!-- Favicon -->
@@ -264,8 +265,6 @@
     
         <!-- Start content -->
         <div class="content">
-            
-        
 @yield('content')
             <!-- END container-fluid -->
 
@@ -280,7 +279,7 @@
         Copyright <a target="_blank" href="#">rubeyond.com</a>
         </span>
         <span class="float-right">
-        Powered by <a target="_blank" href="https://www.pikeadmin.com"><b>Pike Admin</b></a>
+        Powered by <a target="self" href="javascript:alert('Aris said: Ojo')"><b>Jentike Programmer</b></a>
         </span>
     </footer>
 
@@ -310,6 +309,13 @@
     <script language="JavaScript" type="text/javascript" src="/adminstrap/assets/plugins/counterup/jquery.counterup.min.js"></script>            
 
 <!-- END Java Script for this page -->
+    <script language="JavaScript" type="text/javascript" >
+      $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>  
 
 </body>
 </html>
