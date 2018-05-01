@@ -98,7 +98,7 @@ class ProductsController extends AdminController
         $product->icon_file =  " ";//$request->icon_file;
         $product->total_users =  " ";//$request->total_users;
         $product->status =  " ";//$request->status;
-        $product->description = $request->description;
+        $product->description =  $request->description;
         $result = [];
         if($product->save())
             {
