@@ -24,7 +24,7 @@
         <a class="p-2 text-dark" href="/product">Our Products</a>
         <a class="p-2 text-dark" href="/care">We care</a>
       </nav>
-      <a class="btn btn-outline-primary" href="/register">Sign up</a>
+      <a class="btn btn-outline-primary" href="/login">Sign In</a>
     </div>
 
     <div class="container">

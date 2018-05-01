@@ -43,7 +43,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <form class="rubeyond-form" action="#">
+                  <form class="rubeyond-form" method="post" action="#">
                   <div class="modal-body">
                    <p>Nunc molestie felis vitae sem malesuada pulvinar. In condimentum, eros id pellentesque eleifend, sem nibh eleifend neque, ac ultrices nisl nisl vel felis. Phasellus et pellentesque enim, quis tincidunt dui. Suspendisse nisi libero, mollis efficitur commodo in, tempor ut odio. Donec consequat nunc lorem, sit amet pellentesque erat volutpat et.</p>
                       <div class="form-section">
@@ -65,7 +65,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary btn-submit" data-url="/products" data-method="post">Register</button>
+                    <button type="button" class="btn btn-primary btn-submit" onclick="save(this)" data-url="/products" data-method="post">Register</button>
                   </div>
                   </form>
                 </div>
@@ -79,119 +79,17 @@
             <table id="products" class="table table-bordered table-hover display">
             <thead>
                 <tr>
-                    <th data-id="id">ID</th>
-                    <th data-id="name">Name</th>
-                    <th data-id="description">Description</th>
-                    <th data-id="url">Url</th>
-                    <th data-id="updated">Updated</th>
-                    <th data-id="status">Status</th>
-                    <th data-id=""></th>
-                    <th data-id=""></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Url</th>
+                    <th>Updated</th>
+                    <th>Status</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>                                    
             <tbody>
-
-                @foreach ($products as $product)
-
-
-                <tr id="record-{{$product->id}}">
-                    <td>{{$product->id}}</td>
-                    <td>{{$product->name}}</td>
-                    <td>{{$product->description}}</td>
-                    <td>{{$product->product_url}}</td>
-                    <td>{{$product->updated_at}}</td>
-                    <td>{{$product->status}}</td>                  
-                    <td><a href="#editproduct-modal" class="btn btn-primary m-r-5 m-b-10" data-target="#editproduct-{{$product->id}}" data-toggle="modal">Edit</a>
-
-                      <div class="modal fade custom-modal" id="editproduct-{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="editproduct" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel2">Editing Product #{{$product->id}}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <form class="rubeyond-form" action="#">
-                                  <div class="modal-body">
-                                   <p>Nunc molestie felis vitae sem malesuada pulvinar. In condimentum, eros id pellentesque eleifend, sem nibh eleifend neque, ac ultrices nisl nisl vel felis. Phasellus et pellentesque enim, quis tincidunt dui. Suspendisse nisi libero, mollis efficitur commodo in, tempor ut odio. Donec consequat nunc lorem, sit amet pellentesque erat volutpat et.</p>
-                                      <div class="form-section">
-                                        <label for="name">Name:</label>
-                                        <input type="text" class="form-control" name="name" id="name" required="" value="{{$product->name}}" ata-parsley-group="block-0">
-
-                                        <label for="description">Description:</label>
-                                        <textarea class="form-control" name="description" id="description" required="" data-parsley-group="block-0">{{$product->description}} </textarea>
-
-                                        <label for="url">Url:</label>
-                                        <input type="text" class="form-control" name="put_product_url" id="put_product_url" required="" data-parsley-group="block-0">
-
-                                        <label for="technologies">Technology Used:</label>
-                                        <input type="text" class="form-control" name="technologies" id="technologies" required="" data-parsley-group="block-0">
-
-                                        <label for="status">Status:</label>
-                                        <input type="text" class="form-control" name="status" id="status" required="" data-parsley-group="block-0">
-                                      </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Cancel</button>
-                                    <button type="button" data-method="put" data-id="{{$product->id}}" data-url="/products/{{$product->id}}" class="btn btn-primary btn-success btn-submit">Update</button>
-                                  </div>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-
-
-                    </td>
-                    <td><a href="#removeproduct-modal" class="btn btn-danger m-r-5 m-b-10" data-target="#removeproduct-{{$product->id}}" data-toggle="modal">Remove</a>
-
-
-                    <div class="modal fade custom-modal" id="removeproduct-{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="removeproduct" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel2">Removing Product #{{$product->id}}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <form class="rubeyond-form" action="#">
-                              <div class="modal-body">
-                               <p>Are you sure to remove ?</p>
-                                  <div class="form-section">
-                                    <label for="name">Name:</label>
-                                    <input type="text" disabled="true" class="form-control" required="" value="{{$product->name}}" data-parsley-group="block-0">
-
-                                    <label for="description">Description:</label>
-                                    <textarea disabled="true" class="form-control" required="" data-parsley-group="block-0">{{$product->description}} </textarea>
-
-                                    <label for="url">Url:</label>
-                                    <input disabled="true" type="text" class="form-control" required="" data-parsley-group="block-0">
-
-                                    <label for="technologies">Technology Used:</label>
-                                    <input disabled="true" type="text" class="form-control" required="" data-parsley-group="block-0">
-
-                                    <label for="status">Status:</label>
-                                    <input disabled="true" type="text" class="form-control" required="" data-parsley-group="block-0">
-                                  </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Cancel</button>
-                                <button type="button" data-id="{{$product->id}}" data-method="delete" data-url="products/{{$product->id}}" class="btn btn-primary btn-danger btn-remove">Remove</button>
-                              </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-
-
-                    </td>
-                </tr>
-
-
-                @endforeach
             </tbody>
             </table>
             </div>
@@ -205,6 +103,8 @@
 <!-- BEGIN Java Script for this page -->
     <script language="JavaScript" type="text/javascript" >
 
+        function append_rows(){
+        }
         var table;
         // START CODE Individual column searching (text inputs) DATA TABLE      
         $(document).ready(function() {
@@ -217,8 +117,57 @@
             } );
          
             // DataTable
-            table = $('#products').DataTable();
-         
+
+            table = $('#products').DataTable({
+                      ajax: {
+                        url: '/products/rows',
+                        dataSrc: 'data'
+                      },
+                      drawCallback: function(){$('#products > tbody > tr').each(function(){
+
+                        var window_edit= "@include('/products/_edit_button')";
+                        $(this).append(window_edit);
+                        var tds= $(this).children("td");
+                        var id= $(tds[0]).text();
+                        var name= $(tds[1]).text();
+                        var description= $(tds[2]).text();
+                        var edit_column= $(tds[6]);
+                        var btn_edit= edit_column.find("a");
+                        btn_edit.attr("data-target", "#editproduct-"+id);
+                        var window_div= edit_column.find("div");
+                        window_div.attr("id", "editproduct-"+id);
+                        edit_column.find("#name").val(name);
+                        edit_column.find("#description").val(description);
+                        edit_column.find(".btn-submit").attr("data-id", id);
+                        edit_column.find(".btn-submit").attr("data-url", "/products/" + id);
+
+                        var window_remove= "@include('/products/_remove_button')";
+                        $(this).append(window_remove);
+                        var tds= $(this).children("td");
+                        var id= $(tds[0]).text();
+                        var name= $(tds[1]).text();
+                        var description= $(tds[2]).text();
+                        var remove_column= $(tds[7]);
+                        var btn_remove= remove_column.find("a");
+                        btn_remove.attr("data-target", "#removeproduct-"+id);
+                        var window_div= remove_column.find("div");
+                        window_div.attr("id", "removeproduct-"+id);
+                        remove_column.find("#name").val(name);
+                        remove_column.find("#description").val(description);
+                        remove_column.find(".btn-submit").attr("data-id", id);
+                        remove_column.find(".btn-submit").attr("data-url", "/products/" + id);
+
+                      })},
+
+                      columns: [
+                        { data: 'id' },
+                        { data: 'name' },
+                        { data: 'description' },
+                        { data: 'product_url' },
+                        { data: 'updated_at' },
+                        { data: 'status' }
+                      ]}
+                      ); 
             /*
             / Apply the search
             table.columns().every( function () {
@@ -232,87 +181,66 @@
                 } );
             } ); */
         } );
-        // END CODE Individual column searching (text inputs) DATA TABLE     
-         $(".btn-submit").click(function(e){
-
-                var form = $(this).parents('form:first');
-
-                e.preventDefault();
-
-                var target_method = $(this).data("method");
-
-                var id = $(this).data("id");
-
-                var data = {};
-
-                $(form).find('input, select, textarea').each(function(){
-                  var key = this.name;
-                  var value = this.value;
-
-                   data[key]= value;
-
-                });
-
-                   console.log(data);
-                var target_method = $(this).data("method");
-
-                var target_url= $(this).data("url");
+      
 
 
-                $.ajax({
+      function remove(object)
+      {
 
-                   type: target_method,
-
-                   url: target_url,
-
-                   id: id,
-
-                   data: data,
-
-                   success:function(data){
-                      if(data.error==null){
-                      $('.alert-success').text(data.ok);
-                      $('.alert-success').show();
-                      $('.alert-danger').hide();
-                      $(".btn-close").click();
-                      }
-                      else{
-                      $('.alert-danger').text(data.error);
-                      $('.alert-danger').show();
-                      $('.alert-success').hide();
-                      }
-
-                   }
-
-                })
-        })
-
-
-      $(".btn-remove").click(function(e){
-
-            e.preventDefault();
-
-            var target_method = $(this).data("method");
-
-            var target_url= $(this).data("url");
-
-            var id= $(this).data("id");
-
+            var target_method = $(object).data("method");
+            var target_url= $(object).data("url");
+            var id= $(object).data("id");
             $.ajax({
-
                type: target_method,
-
                url: target_url,
-
                id: id,
-
                success:function(data){
                   if(data.error==null){
                   $('.alert-success').text(data.ok);
                   $('.alert-success').show();
                   $('.alert-danger').hide();
                   $(".btn-close").click();
-                  $('#record-'+id + '').hide();
+                  table.ajax.reload();
+                  }
+                  else{
+                  $('.alert-danger').text(data.error);
+                  $('.alert-danger').show();
+                  $('.alert-success').hide();
+                  }
+               }
+
+            });
+
+
+        }
+
+      function save(obj)
+      {
+
+            var target_method = $(obj).data("method");
+            var target_url= $(obj).data("url");
+            var id= $(obj).data("id");
+            var form = $(obj).parents('form:first');
+            var data = {};
+            $(form).find('input, select, textarea').each(function(){
+              var key = this.name;
+              var value = this.value;
+              data[key]= value;
+            });
+
+
+            $.ajax({
+               type: target_method,
+               url: target_url,
+               id: id,
+               data: data,
+               success:function(data){
+                  if(data.error==null){
+                  $('.alert-success').text(data.ok);
+                  $('.alert-success').show();
+                  $('.alert-danger').hide();
+                  $(".btn-close").click();
+                  table.ajax.reload();
                   }
                   else{
                   $('.alert-danger').text(data.error);
@@ -324,8 +252,7 @@
 
             });
 
-
-        })
+        }
         
     </script>   
 
