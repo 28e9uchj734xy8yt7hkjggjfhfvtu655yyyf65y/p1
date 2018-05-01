@@ -40,13 +40,13 @@ class ProductsController extends AdminController
     {
         $product = new Product;
         $product->name = $request->name;
-        $product->product_type = " ";//$request->product_type;
-        $product->product_url =  " ";//$request->product_url;
+        $product->product_type = " "; //$request->product_type;
+        $product->product_url = " " ; //$request->product_url;
         $product->api_url =  " ";//$request->api_url;
         $product->icon_file =  " ";//$request->icon_file;
         $product->total_users =  " ";//$request->total_users;
         $product->status =  " ";//$request->status;
-        $product->description =  " " ;// $request->description;
+        $product->description =  $request->description;
         $result = [];
         if($product->save())
             {
@@ -98,7 +98,7 @@ class ProductsController extends AdminController
         $product->icon_file =  " ";//$request->icon_file;
         $product->total_users =  " ";//$request->total_users;
         $product->status =  " ";//$request->status;
-        $product->description =  "  "; //$request->description;
+        $product->description = $request->description;
         $result = [];
         if($product->save())
             {

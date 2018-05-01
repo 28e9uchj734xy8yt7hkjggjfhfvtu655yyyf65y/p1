@@ -51,13 +51,13 @@
                         <input type="text" class="form-control" name="name" id="name" required="" data-parsley-group="block-0">
 
                         <label for="description">Description:</label>
-                        <textarea class="form-control" name="post_description" id="description" required="" data-parsley-group="block-0"></textarea>
+                        <textarea class="form-control" name="description" id="description" required="" data-parsley-group="block-0"></textarea>
 
                         <label for="url">Url:</label>
-                        <input type="text" class="form-control" name="product_url" id="post_product_url" required="" data-parsley-group="block-0">
+                        <input type="text" class="form-control" name="product_url" id="product_url" required="" data-parsley-group="block-0">
 
                         <label for="technologies">Technology Used:</label>
-                        <input type="text" class="form-control" name="technologies" id="post_technologies" required="" data-parsley-group="block-0">
+                        <input type="text" class="form-control" name="technologies" id="technologies" required="" data-parsley-group="block-0">
 
                         <label for="status">Status:</label>
                         <input type="text" class="form-control" name="status" id="status" required="" data-parsley-group="block-0">
