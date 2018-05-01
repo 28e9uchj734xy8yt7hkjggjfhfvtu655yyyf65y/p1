@@ -22,7 +22,7 @@
                   </div>
                   <div class='modal-footer'>
                     <button type='button' class='btn btn-secondary btn-close' data-dismiss='modal'>Cancel</button>
-                    <button type='button' data-method='delete' data-id='' data-url='' class='btn btn-danger btn-submit'>Remove</button>
+                    <button type='button' data-method='delete' data-id='' data-url='' class='btn btn-danger btn-remove'>Remove</button>
                   </div>
                   </form>
                 </div>
@@ -30,59 +30,3 @@
             </div>
         </div>
     </td>
-    <script type="text/javascript">
-        // END CODE Individual column searching (text inputs) DATA TABLE     
-         $(".btn-submit").click(function(e){
-
-                var form = $(this).parents('form:first');
-
-                e.preventDefault();
-
-                var target_method = $(this).data("method");
-
-                var id = $(this).data("id");
-
-                var data = {};
-
-                $(form).find('input, select, textarea').each(function(){
-                  var key = this.name;
-                  var value = this.value;
-                  data[key]= value;
-                });
-
-                var target_method = $(this).data("method");
-
-                var target_url= $(this).data("url");
-
-
-                $.ajax({
-
-                   type: target_method,
-
-                   url: target_url,
-
-                   id: id,
-
-                   data: data,
-
-                   success:function(data){
-                      if(data.error==null){
-
-                       table.ajax.reload();
-
-                      $('.alert-success').text(data.ok);
-                      $('.alert-success').show();
-                      $('.alert-danger').hide();
-                      $(".btn-close").click();
-                      }
-                      else{
-                      $('.alert-danger').text(data.error);
-                      $('.alert-danger').show();
-                      $('.alert-success').hide();
-                      }
-
-                   }
-
-                })
-        })
-    </script>

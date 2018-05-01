@@ -22,7 +22,7 @@
                   </div>
                   <div class='modal-footer'>
                     <button type='button' class='btn btn-secondary btn-close' data-dismiss='modal'>Cancel</button>
-                    <button type='button' data-method='put' onclick='save(this)' data-id='' data-url='' class='btn btn-primary btn-success btn-submit'>Update</button>
+                    <button type='button' data-method='put' onclick='save(this)' data-id='' data-url='' class='btn btn-primary btn-update'>Update</button>
                   </div>
                   </form>
                 </div>

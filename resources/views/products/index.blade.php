@@ -126,8 +126,11 @@
                       drawCallback: function(){$('#products > tbody > tr').each(function(){
 
                         var window_edit= "@include('/products/_edit_button')";
-                        $(this).append(window_edit);
+                        if($(this).children("td").length==6){
+                          $(this).append( window_edit );
+                        }
                         var tds= $(this).children("td");
+
                         var id= $(tds[0]).text();
                         var name= $(tds[1]).text();
                         var description= $(tds[2]).text();
@@ -138,11 +141,13 @@
                         window_div.attr("id", "editproduct-"+id);
                         edit_column.find("#name").val(name);
                         edit_column.find("#description").val(description);
-                        edit_column.find(".btn-submit").attr("data-id", id);
-                        edit_column.find(".btn-submit").attr("data-url", "/products/" + id);
+                        edit_column.find(".btn-update").attr("data-id", id);
+                        edit_column.find(".btn-update").attr("data-url", "/products/" + id);
 
                         var window_remove= "@include('/products/_remove_button')";
-                        $(this).append(window_remove);
+                        if($(this).children("td").length==7){
+                          $(this).append(window_remove);
+                        }
                         var tds= $(this).children("td");
                         var id= $(tds[0]).text();
                         var name= $(tds[1]).text();
@@ -154,8 +159,8 @@
                         window_div.attr("id", "removeproduct-"+id);
                         remove_column.find("#name").val(name);
                         remove_column.find("#description").val(description);
-                        remove_column.find(".btn-submit").attr("data-id", id);
-                        remove_column.find(".btn-submit").attr("data-url", "/products/" + id);
+                        remove_column.find(".btn-remove").attr("data-id", id);
+                        remove_column.find(".btn-remove").attr("data-url", "/products/" + id);
 
                       })},
 
@@ -227,8 +232,6 @@
               var value = this.value;
               data[key]= value;
             });
-
-
             $.ajax({
                type: target_method,
                url: target_url,
