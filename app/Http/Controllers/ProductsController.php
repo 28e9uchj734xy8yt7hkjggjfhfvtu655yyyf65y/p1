@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
+use Response;
 
 class ProductsController extends AdminController
 {
@@ -45,7 +46,7 @@ class ProductsController extends AdminController
         $product->icon_file =  " ";//$request->icon_file;
         $product->total_users =  " ";//$request->total_users;
         $product->status =  " ";//$request->status;
-        $product->description =  $request->description;
+        $product->description =  " " ;// $request->description;
         $result = [];
         if($product->save())
             {
@@ -88,8 +89,26 @@ class ProductsController extends AdminController
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {  
+        $product= Product::find($id);
+        $product->name = $request->name;
+        $product->product_type = " ";//$request->product_type;
+        $product->product_url =  " ";//$request->product_url;
+        $product->api_url =  " ";//$request->api_url;
+        $product->icon_file =  " ";//$request->icon_file;
+        $product->total_users =  " ";//$request->total_users;
+        $product->status =  " ";//$request->status;
+        $product->description =  "  "; //$request->description;
+        $result = [];
+        if($product->save())
+            {
+                $result['ok']= "Success";
+        }
+        else{
+
+                $result['error']= "Failed";
+        }
+        return Response::json($result);
     }
 
     /**

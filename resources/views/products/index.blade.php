@@ -48,19 +48,19 @@
                    <p>Nunc molestie felis vitae sem malesuada pulvinar. In condimentum, eros id pellentesque eleifend, sem nibh eleifend neque, ac ultrices nisl nisl vel felis. Phasellus et pellentesque enim, quis tincidunt dui. Suspendisse nisi libero, mollis efficitur commodo in, tempor ut odio. Donec consequat nunc lorem, sit amet pellentesque erat volutpat et.</p>
                       <div class="form-section">
                         <label for="name">Name:</label>
-                        <input type="text" class="form-control" name="create_name" id="create_name" required="" data-parsley-group="block-0">
+                        <input type="text" class="form-control" name="name" id="name" required="" data-parsley-group="block-0">
 
                         <label for="description">Description:</label>
-                        <textarea class="form-control" name="create_description" id="create_description" required="" data-parsley-group="block-0"></textarea>
+                        <textarea class="form-control" name="post_description" id="description" required="" data-parsley-group="block-0"></textarea>
 
                         <label for="url">Url:</label>
-                        <input type="text" class="form-control" name="create_product_url" id="create_product_url" required="" data-parsley-group="block-0">
+                        <input type="text" class="form-control" name="product_url" id="post_product_url" required="" data-parsley-group="block-0">
 
                         <label for="technologies">Technology Used:</label>
-                        <input type="text" class="form-control" name="create_technologies" id="create_technologies" required="" data-parsley-group="block-0">
+                        <input type="text" class="form-control" name="technologies" id="post_technologies" required="" data-parsley-group="block-0">
 
                         <label for="status">Status:</label>
-                        <input type="text" class="form-control" name="create_status" id="create_status" required="" data-parsley-group="block-0">
+                        <input type="text" class="form-control" name="status" id="status" required="" data-parsley-group="block-0">
                       </div>
                   </div>
                   <div class="modal-footer">
@@ -117,24 +117,24 @@
                                    <p>Nunc molestie felis vitae sem malesuada pulvinar. In condimentum, eros id pellentesque eleifend, sem nibh eleifend neque, ac ultrices nisl nisl vel felis. Phasellus et pellentesque enim, quis tincidunt dui. Suspendisse nisi libero, mollis efficitur commodo in, tempor ut odio. Donec consequat nunc lorem, sit amet pellentesque erat volutpat et.</p>
                                       <div class="form-section">
                                         <label for="name">Name:</label>
-                                        <input type="text" class="form-control" name="edit_name" id="name" required="" value="{{$product->name}}" ata-parsley-group="block-0">
+                                        <input type="text" class="form-control" name="name" id="name" required="" value="{{$product->name}}" ata-parsley-group="block-0">
 
                                         <label for="description">Description:</label>
-                                        <textarea class="form-control" name="edit_description" id="description" required="" data-parsley-group="block-0">{{$product->description}} </textarea>
+                                        <textarea class="form-control" name="description" id="description" required="" data-parsley-group="block-0">{{$product->description}} </textarea>
 
                                         <label for="url">Url:</label>
-                                        <input type="text" class="form-control" name="edit_product_url" id="product_url" required="" data-parsley-group="block-0">
+                                        <input type="text" class="form-control" name="put_product_url" id="put_product_url" required="" data-parsley-group="block-0">
 
                                         <label for="technologies">Technology Used:</label>
-                                        <input type="text" class="form-control" name="edit_technologies" id="technologies" required="" data-parsley-group="block-0">
+                                        <input type="text" class="form-control" name="technologies" id="technologies" required="" data-parsley-group="block-0">
 
                                         <label for="status">Status:</label>
-                                        <input type="text" class="form-control" name="edit_status" id="status" required="" data-parsley-group="block-0">
+                                        <input type="text" class="form-control" name="status" id="status" required="" data-parsley-group="block-0">
                                       </div>
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Cancel</button>
-                                    <button type="button" data-url="" class="btn btn-primary btn-success">Update</button>
+                                    <button type="button" data-method="put" data-id="{{$product->id}}" data-url="/products/{{$product->id}}" class="btn btn-primary btn-success btn-submit">Update</button>
                                   </div>
                                   </form>
                                 </div>
@@ -178,7 +178,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary btn-close" data-dismiss="modal">Cancel</button>
-                                <button type="button" data-id={{$product->id}} data-method="delete" data-url="products/{{$product->id}}" class="btn btn-primary btn-danger btn-remove">Remove</button>
+                                <button type="button" data-id="{{$product->id}}" data-method="delete" data-url="products/{{$product->id}}" class="btn btn-primary btn-danger btn-remove">Remove</button>
                               </div>
                               </form>
                             </div>
@@ -235,17 +235,29 @@
         // END CODE Individual column searching (text inputs) DATA TABLE     
          $(".btn-submit").click(function(e){
 
+                var form = $(this).parents('form:first');
+
                 e.preventDefault();
-
-                var name = $("input[name=create_name]").val();
-
-                var description = $("textarea[name=create_description]").val();
-
-                var url = $("input[name=create_product_url]").val();
 
                 var target_method = $(this).data("method");
 
+                var id = $(this).data("id");
+
+                var data = {};
+
+                $(form).find('input, select, textarea').each(function(){
+                  var key = this.name;
+                  var value = this.value;
+
+                   data[key]= value;
+
+                });
+
+                   console.log(data);
+                var target_method = $(this).data("method");
+
                 var target_url= $(this).data("url");
+
 
                 $.ajax({
 
@@ -253,7 +265,9 @@
 
                    url: target_url,
 
-                   data:{name: name, description: description, product_url: url},
+                   id: id,
+
+                   data: data,
 
                    success:function(data){
                       if(data.error==null){
